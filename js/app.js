@@ -23,7 +23,8 @@ taskForm.addEventListener("submit",
 function createTaskElement(task) {
     const li = document.createElement('li'); // Crea un elemento <li> para la tarea
     li.textContent = task; // Asigna el texto de la tarea al elemento <li>
-    li.append(createButton('❌', 'delete-btn'), createButton('✏️', 'edit-btn')); // Agrega botones de eliminar y editar a la tarea
+    li.append(createButton('❌', 'delete-btn'), // Agrega botones de eliminar la tarea
+    createButton('✏️', 'edit-btn')); // Agrega boton editar a la tarea
     return li; // Devuelve el elemento <li> creado
 }
 
@@ -34,3 +35,4 @@ function createButton(text, className) {
     btn.className = className; // Asigna la clase al botón
     return btn; // Devuelve el botón creado
 }
+
