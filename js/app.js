@@ -36,3 +36,29 @@ function createButton(text, className) {
     return btn; // Devuelve el botón creado
 }
 
+//interactividad a los botones
+//crear un evento al elemento padre (la lista)
+taskList.addEventListener("click", 
+    (event)=>{ 
+        //si el elemento tiene la clase
+        if(event.target.classList.contains("delete-btn")){
+            deleteTask(event.target.parentElement);
+        }else if(event.target.classList.contains("edit-btn")){
+            editTask(event.target.parentElement)
+        }
+    }
+)
+//eliminar un elemento
+function deleteTask(taskItem){
+    if(confirm("Seguro que deseas eliminar el elemento?")){
+        taskItem.remove();
+    }
+}
+
+function editTask(taskItem){
+    const newTask = prompt("Editar la tarea: ", taskItem.firstChild.textContent);
+    if(newTask !== null){
+        taskItem.firstChild.textContent = newTask;
+    }
+}
+
