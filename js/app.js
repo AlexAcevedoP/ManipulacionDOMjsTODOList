@@ -104,3 +104,21 @@ function updateLocalStorage() {
     // Guardar el nuevo arreglo en localStorage
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
+
+//tema oscuro
+const themeToggleButton = document.getElementById("toggle-theme-btn");
+const currentTheme = localStorage.getItem("theme");
+console.log(currentTheme)
+
+themeToggleButton.addEventListener("click", ()=>{
+    document.body.classList.toggle("dark-theme");
+    //si body tiene el tema dark-theme va a ser iguala  dark, si no va a ser light
+    const theme = document.body.classList.contains("dark-theme") ? "dark" : "light";
+    //guardar en local storage el tema para su persistencia 
+    localStorage.setItem("theme", theme);
+})
+
+//darle persistencia a la clase dark asignandola en el body
+if(currentTheme === "dark"){
+    document.body.classList.add("dark-theme")
+}
